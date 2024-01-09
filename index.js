@@ -13,7 +13,7 @@ const settingsCollection = database.collection('settings')
 
 
 app.use(cors({
-  origin: ['https://ipchecking-61fd2.web.app', 'https://ipchecking.vercel.app', 'http://localhost:5173','https://app.searchesforu.com', 'https://api.searchesforu.com'  ],
+  origin: ['https://ipchecking2025.web.app', 'https://ipchecking.vercel.app', 'http://localhost:5173','https://app.searchesforu.com', 'https://api.searchesforu.com'  ],
   credentials: true,
 }));
 
