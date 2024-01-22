@@ -12,12 +12,22 @@ const ipCollection = database.collection('ip')
 const settingsCollection = database.collection('settings')
 
 
-app.use(cors({
-  origin: ['ipchecking2025.firebaseapp.com','https://ipchecking2025.web.app', 'https://ipchecking-server-qn61.vercel.app', 'http://localhost:5173','https://app.searchesforu.com', 'https://api.searchesforu.com' ,'web.app', 'https://web.app', 'www.web.app' ,'ipchecking2025.web.app'],
+// middleware 
+const allowedOrigins = ['ipchecking2025.firebaseapp.com','https://ipchecking2025.web.app', 'https://ipchecking-server-qn61.vercel.app', 'http://localhost:5173','https://app.searchesforu.com', 'https://api.searchesforu.com' ,'web.app', 'https://web.app', 'www.web.app' ,'ipchecking2025.web.app'];
+
+const corsOptions = {
+  origin: allowedOrigins,
   credentials: true,
-}));
+  optionSuccessStatus: 200,
+};
 
-
+app.use((req, res, next) => {
+  if (req.path === '/domain') {
+    cors()(req, res, next);
+  } else {
+    cors(corsOptions)(req, res, next);
+  }
+});
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const verifyPassword = require('./middleware/verifyPassword.middleware');
