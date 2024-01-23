@@ -16,7 +16,7 @@ const settingsCollection = database.collection('settings')
 const allowedOrigins = ['ipchecking2025.firebaseapp.com','https://ipchecking2025.web.app', 'https://ipchecking-server-qn61.vercel.app', 'http://localhost:5173','https://app.searchesforu.com', 'https://api.searchesforu.com' ,'web.app', 'https://web.app', 'www.web.app' ,'ipchecking2025.web.app'];
 
 const corsOptions = {
-  origin: allowedOrigins,
+  origin: '*',
   credentials: true,
   optionSuccessStatus: 200,
 };
